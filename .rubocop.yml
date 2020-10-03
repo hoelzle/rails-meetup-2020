@@ -1,0 +1,42 @@
+require: rubocop-rspec
+
+Rails:
+  Enabled: true
+
+Layout/LineLength:
+  Max: 120
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: true
+  EnforcedStyle: omit_parentheses
+
+RSpec/MultipleExpectations:
+  Max: 3
+  Exclude:
+    - 'spec/system/**/*'
+    - 'spec/requests/**/*'
+
+RSpec/ExampleLength:
+  Exclude:
+    - 'spec/system/**/*'
+    - 'spec/requests/**/*'
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'script/**/*'
+    - 'log/**/*'
+    - 'public/**/*'
+    - 'tmp/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'

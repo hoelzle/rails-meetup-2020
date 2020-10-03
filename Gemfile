@@ -14,6 +14,8 @@ end
 
 group :development do
   gem 'listen'
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec'
   gem 'spring'
   gem 'spring-watcher-listen'
 end
