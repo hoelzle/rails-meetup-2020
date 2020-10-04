@@ -19,6 +19,10 @@ Style/MethodCallWithArgsParentheses:
   Enabled: true
   EnforcedStyle: omit_parentheses
 
+Metrics/BlockLength:
+  Exclude:
+  - 'spec/**/*.rb'
+
 RSpec/MultipleExpectations:
   Max: 3
   Exclude:
