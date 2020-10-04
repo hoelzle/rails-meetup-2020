@@ -2,9 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'Products', type: :request do
   describe 'GET /show' do
+    let(:product) { create :product, name: 'ABC', id: 5 }
+
     it 'returns http success' do
-      get '/products/show'
+      get product_path product
       expect(response).to have_http_status(:success)
+      expect(body).to match hash_including id: 5, name: 'ABC'
     end
   end
 
@@ -14,7 +17,7 @@ RSpec.describe 'Products', type: :request do
     it 'returns http success' do
       get products_path
       expect(response).to have_http_status(:success)
-      expect(json).to contain_exactly \
+      expect(body).to contain_exactly \
         hash_including(:name, :price),
         hash_including(:name, :price)
     end

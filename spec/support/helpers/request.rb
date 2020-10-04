@@ -1,6 +1,6 @@
 module Helpers
   module Request
-    def json
+    def body
       JSON.parse response.body, symbolize_names: true
     end
   end
