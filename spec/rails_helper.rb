@@ -3,7 +3,10 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start 'rails' do
+  add_filter { |source| source.lines.count < 5 }
+end
+SimpleCov.minimum_coverage 100
 
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
