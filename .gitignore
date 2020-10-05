@@ -13,6 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 coverage
+spec/examples.txt
 
 .byebug_history
 
