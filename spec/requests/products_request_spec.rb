@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Products', type: :request do
+RSpec.describe 'Products', kind: :request do
   describe 'GET /show' do
     let(:product) { create :product, name: 'ABC', id: 5 }
 

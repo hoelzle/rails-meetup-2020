@@ -3,15 +3,15 @@ FactoryBot.define do
     sequence(:name) { |n| ('A'..'Z').to_a[(n - 1) % 26] }
     discount { [0, 10, 20, 30, 40, 50, 60].sample }
 
-    type { :basic }
+    kind { :basic }
     trait :basic
 
     trait :actual do
-      type { :actual }
+      kind { :actual }
     end
 
     trait :maximal do
-      type { :maximal }
+      kind { :maximal }
     end
   end
 end

@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Code do
-  subject!(:code) { create :code, name: 'A', type: type, discount: discount }
+  subject!(:code) { create :code, name: 'A', kind: kind, discount: discount }
 
   describe 'primary key uniqueness' do
-    let(:type) { :basic }
+    let(:kind) { :basic }
     let(:discount) { 30 }
 
     it 'validates the uniqueness of the primary key' do
@@ -13,7 +13,7 @@ RSpec.describe Code do
   end
 
   context 'when maximal' do
-    let(:type) { :maximal }
+    let(:kind) { :maximal }
     let(:discount) { 30 }
 
     describe '.discount' do
@@ -29,7 +29,7 @@ RSpec.describe Code do
   end
 
   context 'when actual' do
-    let(:type) { :actual }
+    let(:kind) { :actual }
     let(:discount) { 30 }
 
     describe '.discount' do
@@ -45,7 +45,7 @@ RSpec.describe Code do
   end
 
   context 'when basic' do
-    let(:type) { :basic }
+    let(:kind) { :basic }
     let(:discount) { [nil, 10].sample }
 
     describe '.discount' do

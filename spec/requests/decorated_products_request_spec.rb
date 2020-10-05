@@ -1,13 +1,17 @@
 require 'rails_helper'
 
-RSpec.describe 'DecoratedProducts', type: :request do
+RSpec.describe 'DecoratedProducts', kind: :request do
+  let(:customer) { create :customer, discount: discount }
+  let(:discount) { 20 }
+
   describe 'GET /show' do
-    let(:product) { create :product, name: 'ABC', id: 5 }
+    let(:product) { create :product, price: 100, code: code }
+    let(:code) { create :code, :maximal, discount: 10 }
 
     it 'returns http success' do
-      get decorated_product_path product
+      get decorated_product_path product, customer_id: customer.id
       expect(response).to have_http_status(:success)
-      expect(body).to match hash_including id: 5, name: 'ABC'
+      expect(body).to match hash_including price: 100, net_price: 90
     end
   end
 

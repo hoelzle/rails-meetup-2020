@@ -4,7 +4,7 @@ RSpec.describe Decorators::Price do
   subject(:decorated) { described_class.new product, customer }
 
   let(:product) { create :product, code: code, price: 100 }
-  let(:code) { create :code, type: :maximal, discount: 30 }
+  let(:code) { create :code, kind: :maximal, discount: 30 }
   let(:customer) { create :customer, discount: 40 }
 
   context 'with regular price only' do
