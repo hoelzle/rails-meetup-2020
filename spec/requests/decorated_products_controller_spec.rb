@@ -11,7 +11,7 @@ RSpec.describe DecoratedProductsController do
 
     it 'returns http success' do
       get decorated_product_path product, params: params
-      expect(response).to be_succcessful
+      expect(response).to be_successful
       expect(body).to match hash_including \
         price: 100, discount: 10, net_price: 90
     end

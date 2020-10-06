@@ -3,22 +3,15 @@ module Decorators
     include Concerns::DiscountFactor
     alias customer context
 
-    def effective?(*)
-      true
-    end
-
-    # Brutto
-    def price(*)
+    def price
       self[:price]
     end
 
-    # Netto
-    def net_price(*)
+    def net_price
       price * factor(discount)
     end
 
-    # GR
-    def discount(*)
+    def discount
       code.discount customer.discount
     end
   end
