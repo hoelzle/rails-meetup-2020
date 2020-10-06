@@ -1,6 +1,6 @@
 module Decorators
   class RegularPrice < Decorators::Context
-    include Concerns::DiscountFactor
+    using DiscountFactor
     alias customer context
 
     def price
@@ -8,7 +8,7 @@ module Decorators
     end
 
     def net_price
-      price * factor(discount)
+      price * discount.factor
     end
 
     def discount
