@@ -7,7 +7,7 @@ class DecoratedProductsController < ProductsController
 
   def index
     @decorated_products = Decorators::Collection.new @products, customer, Decorators::Price
-    @representer = Representers::Product.for_collection @decorated_products
+    @representer = Representers::Product.for_collection.new @decorated_products
     render json: @representer
   end
 
