@@ -15,10 +15,6 @@ module Decorators
       effective(quantity).discount quantity
     end
 
-    def volume_discount(quantity = 1)
-      effective(quantity).volume_discount quantity
-    end
-
     private
 
     def regular

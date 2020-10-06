@@ -21,14 +21,5 @@ module Decorators
     def discount(*)
       code.discount customer.discount
     end
-
-    # MR
-    def volume_discount(*)
-      nil
-    end
-
-    def quantities
-      # Do not enter in volume_prices
-    end
   end
 end

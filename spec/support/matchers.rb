@@ -20,16 +20,15 @@ RSpec::Matchers.define :be_near do |expected|
   end
 end
 
-RSpec::Matchers.define :match_price do |price, discount, volume_discount, net_price|
+RSpec::Matchers.define :match_price do |price, discount, net_price|
   match do |actual|
     expect(actual.price).to eq price
     expect(actual.discount).to eq discount
-    expect(actual.volume_discount).to eq volume_discount
     expect(actual.net_price).to be_near net_price
   end
   failure_message do |actual|
-    actual_price = %i[price discount volume_discount net_price].map { |p| actual.send p }.join(', ')
-    expected_price = ([price, discount, volume_discount, net_price]).join ', '
+    actual_price = %i[price discount net_price].map { |p| actual.send p }.join(', ')
+    expected_price = ([price, discount, net_price]).join ', '
     "expected <#{actual.try(:klass) || actual.class}> #{actual_price} to match #{expected_price}"
   end
 end
