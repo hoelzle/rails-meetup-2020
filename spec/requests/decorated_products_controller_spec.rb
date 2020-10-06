@@ -1,7 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe 'DecoratedProducts', kind: :request do
+RSpec.describe DecoratedProductsController do
   let(:customer) { create :customer, discount: discount }
+  let(:params) { { customer_id: customer.id } }
   let(:discount) { 20 }
 
   describe 'GET /show' do
@@ -9,9 +10,10 @@ RSpec.describe 'DecoratedProducts', kind: :request do
     let(:code) { create :code, :maximal, discount: 10 }
 
     it 'returns http success' do
-      get decorated_product_path product, customer_id: customer.id
-      expect(response).to have_http_status(:success)
-      expect(body).to match hash_including price: 100, net_price: 90
+      get decorated_product_path product, params: params
+      expect(response).to be_succcessful
+      expect(body).to match hash_including \
+        price: 100, discount: 10, net_price: 90
     end
   end
 
@@ -20,11 +22,12 @@ RSpec.describe 'DecoratedProducts', kind: :request do
     let!(:customer) { create :customer, discount: 10 }
 
     it 'returns http success' do
-      get decorated_products_path
-      expect(response).to have_http_status(:success)
+      get decorated_products_path, params: params
+
+      expect(response).to be_successful
       expect(body).to contain_exactly \
-        hash_including(:name, :price),
-        hash_including(:name, :price)
+        hash_including(:name, :price, :discount, :net_price),
+        hash_including(:name, :price, :discount, :net_price)
     end
   end
 end

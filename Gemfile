@@ -5,6 +5,7 @@ ruby '2.6.5'
 gem 'pg'
 gem 'puma'
 gem 'rails'
+gem 'representable'
 
 group :development, :test do
   gem 'byebug'

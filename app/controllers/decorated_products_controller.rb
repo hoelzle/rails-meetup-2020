@@ -1,13 +1,20 @@
 class DecoratedProductsController < ProductsController
   def show
-    @product = Decorators::Price.new @product, customer
-    super
+    @decorated_product = Decorators::Price.new @product, customer
+    @representer = Representers::Product.new @decorated_product
+    render json: @representer
+  end
+
+  def index
+    @decorated_products = Decorators::Collection.new @products, customer, Decorators::Price
+    @representer = Representers::Product.for_collection @decorated_products
+    render json: @representer
   end
 
   private
 
   def customer
-    @customer = Customer.find_by id: permitted_params[:customer_id]
+    @customer = Customer.find permitted_params[:customer_id]
   end
 
   def permitted_params
