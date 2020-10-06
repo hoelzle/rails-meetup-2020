@@ -1,7 +1,7 @@
 ---
-marp: false
+marp: true
 theme: uncover
-_class: invert
+class: invert
 ---
 
 # Hoelzle AG
@@ -9,31 +9,50 @@ Gregor Wassmann
 
 ---
 
+![bg](https://assets.hoelzle.ch/image/upload/ar_16:9,c_lfill,dpr_2.0,f_auto,g_custom:face,w_450/iStock-1069742886)
+
+---
+
+![bg](https://assets.hoelzle.ch/image/upload/ar_16:9,c_lfill,dpr_2.0,f_auto,w_450/iStock-1030386752)
+
+---
+
+![bg](https://assets.hoelzle.ch/image/upload/c_limit,dpr_auto,f_auto,q_auto:eco,w_1200/v1585066206/Depositphotos_43697107_original)
+
+---
+
 # Agenda
 
 - Decorators vs Concerns
-- Refinements (FiveCents)
-- Latex Invoices
-- Scale Heroku Dynos with Cronjobs
-- Svelte
+- Refinements
 
 ---
 
 # Decorators
 
-- Draper
-- SimpleDelegator
-- Plain old Ruby objects (PORO)
+- Module + Extend + Super
+- Plain Old Ruby Object (PORO)
+- Class + Method Missing
+- SimpleDelegator + Super + Getobj
 
 ---
+
+# Links
+- [Thoughtbot — Evaluating Alternative Decorator Implementations In Ruby](https://thoughtbot.com/blog/evaluating-alternative-decorator-implementations-in)
+
+---
+
+You should use…
 
 ```ruby
-def roo
-  'hello'
+class Price < SimpleDelegator
 end
 ```
+
 ---
 
-Readings
+It redefines `class`, but that may be the only drawback…
 
-- https://blog.appsignal.com/2020/08/05/introduction-to-ruby-on-rails-patterns-and-anti-patterns.html
+---
+
+[github.com/hoelzle/rails-meetup-2020](https://github.com/hoelzle/rails-meetup-2020)
