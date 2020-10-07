@@ -22,7 +22,6 @@ RSpec.describe DecoratedProductsController do
 
     it 'returns http success' do
       get decorated_products_path, params: params
-
       expect(response).to be_successful
       expect(body).to contain_exactly \
         hash_including(:name, :price, :discount, :net_price),
