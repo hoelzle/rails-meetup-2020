@@ -144,3 +144,12 @@ end
 ---
 
 [github.com/hoelzle/rails-meetup-2020](https://github.com/hoelzle/rails-meetup-2020)
+
+---
+
+# Thanks Rails Community ♥︎
+
+What I learned at the meetup was:
+
+- https://crystal-lang.org/
+- https://www.luckyframework.org/
