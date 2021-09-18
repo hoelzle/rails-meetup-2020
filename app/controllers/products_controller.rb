@@ -13,14 +13,10 @@ class ProductsController < ApplicationController
   private
 
   def product
-    @product = Product.find permitted_params[:id]
+    @product = Product.find params[:id]
   end
 
   def products
     @products = Product.all
-  end
-
-  def permitted_params
-    params.permit :id
   end
 end
