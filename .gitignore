@@ -12,10 +12,13 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+
+# Development
 coverage
 spec/examples.txt
-
 .byebug_history
+
+node_modules
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
